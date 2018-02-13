@@ -48,5 +48,12 @@
 	</dict>
 	<key>APIURLEndpoint</key>
 	<string>$(API_URL_ENDPOINT)</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>fa-solid-900.ttf</string>
+		<string>fa-regular-400.ttf</string>
+		<string>fa-brands-400.ttf</string>
+		<string>fontawesome-webfont.ttf</string>
+	</array>
 </dict>
 </plist>
