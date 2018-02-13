@@ -55,5 +55,7 @@
 		<string>fa-brands-400.ttf</string>
 		<string>fontawesome-webfont.ttf</string>
 	</array>
+	<key>APIKEY</key>
+	<string>$(API_KEY)</string>
 </dict>
 </plist>

@@ -17,11 +17,11 @@
 		4728FE782031F46500A08C69 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4728FE762031F46400A08C69 /* README.md */; };
 		476298332032DF8600BD8621 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476298322032DF8600BD8621 /* Movie.swift */; };
 		476298352032E50D00BD8621 /* Movie_Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476298342032E50D00BD8621 /* Movie_Result.swift */; };
-		4762983A2032E96D00BD8621 /* BaseServiceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476298382032E96D00BD8621 /* BaseServiceInteractor.swift */; };
 		4762984B2032EA2800BD8621 /* fa-brands-400.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 476298472032EA2800BD8621 /* fa-brands-400.ttf */; };
 		4762984C2032EA2800BD8621 /* fa-regular-400.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 476298482032EA2800BD8621 /* fa-regular-400.ttf */; };
 		4762984D2032EA2800BD8621 /* fa-solid-900.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 476298492032EA2800BD8621 /* fa-solid-900.ttf */; };
 		4762984E2032EA2800BD8621 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4762984A2032EA2800BD8621 /* fontawesome-webfont.ttf */; };
+		476298502032F03100BD8621 /* MovieServiceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762984F2032F03100BD8621 /* MovieServiceInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,11 +37,11 @@
 		4728FE762031F46400A08C69 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		476298322032DF8600BD8621 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		476298342032E50D00BD8621 /* Movie_Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie_Result.swift; sourceTree = "<group>"; };
-		476298382032E96D00BD8621 /* BaseServiceInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseServiceInteractor.swift; sourceTree = "<group>"; };
 		476298472032EA2800BD8621 /* fa-brands-400.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-brands-400.ttf"; sourceTree = "<group>"; };
 		476298482032EA2800BD8621 /* fa-regular-400.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-regular-400.ttf"; sourceTree = "<group>"; };
 		476298492032EA2800BD8621 /* fa-solid-900.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-solid-900.ttf"; sourceTree = "<group>"; };
 		4762984A2032EA2800BD8621 /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.ttf"; sourceTree = "<group>"; };
+		4762984F2032F03100BD8621 /* MovieServiceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieServiceInteractor.swift; sourceTree = "<group>"; };
 		AECEFA18832B30DF8F6E2930 /* Pods-MovieBrowser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieBrowser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MovieBrowser/Pods-MovieBrowser.debug.xcconfig"; sourceTree = "<group>"; };
 		C9DA18F946D1783C80965257 /* Pods_MovieBrowser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieBrowser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -140,22 +140,14 @@
 			isa = PBXGroup;
 			children = (
 				4762983C2032E9AF00BD8621 /* Movie */,
-				4762983B2032E98800BD8621 /* Base */,
 			);
 			path = ServiceInteractor;
-			sourceTree = "<group>";
-		};
-		4762983B2032E98800BD8621 /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				476298382032E96D00BD8621 /* BaseServiceInteractor.swift */,
-			);
-			path = Base;
 			sourceTree = "<group>";
 		};
 		4762983C2032E9AF00BD8621 /* Movie */ = {
 			isa = PBXGroup;
 			children = (
+				4762984F2032F03100BD8621 /* MovieServiceInteractor.swift */,
 			);
 			path = Movie;
 			sourceTree = "<group>";
@@ -331,10 +323,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4728FE602031E0FD00A08C69 /* ViewController.swift in Sources */,
-				4762983A2032E96D00BD8621 /* BaseServiceInteractor.swift in Sources */,
 				4728FE5E2031E0FD00A08C69 /* AppDelegate.swift in Sources */,
 				476298332032DF8600BD8621 /* Movie.swift in Sources */,
 				476298352032E50D00BD8621 /* Movie_Result.swift in Sources */,
+				476298502032F03100BD8621 /* MovieServiceInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,7 +466,7 @@
 				API_IMGURL_ENDPOINT = "https://image.tmdb.org/t/p/w600_and_h900_bestv2";
 				API_KEY = abd05d8d1150697600087b20710b5376;
 				API_READ_ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhYmQwNWQ4ZDExNTA2OTc2MDAwODdiMjA3MTBiNTM3NiIsInN1YiI6IjVhODFiMzc5YzNhMzY4MTg5MzAzNzQ5ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ysrEd14oW-FbknVZcM4NET4-Z7bJc_vauzYS1vuJtHY";
-				API_URL_ENDPOINT = "https://api.visaero.com/";
+				API_URL_ENDPOINT = "https://api.themoviedb.org/";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T6B63PK4FC;
@@ -495,7 +487,7 @@
 				API_IMGURL_ENDPOINT = "https://image.tmdb.org/t/p/w600_and_h900_bestv2";
 				API_KEY = abd05d8d1150697600087b20710b5376;
 				API_READ_ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhYmQwNWQ4ZDExNTA2OTc2MDAwODdiMjA3MTBiNTM3NiIsInN1YiI6IjVhODFiMzc5YzNhMzY4MTg5MzAzNzQ5ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ysrEd14oW-FbknVZcM4NET4-Z7bJc_vauzYS1vuJtHY";
-				API_URL_ENDPOINT = "https://api.visaero.com/";
+				API_URL_ENDPOINT = "https://api.themoviedb.org/";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T6B63PK4FC;
@@ -573,7 +565,7 @@
 				API_IMGURL_ENDPOINT = "https://image.tmdb.org/t/p/w600_and_h900_bestv2";
 				API_KEY = abd05d8d1150697600087b20710b5376;
 				API_READ_ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhYmQwNWQ4ZDExNTA2OTc2MDAwODdiMjA3MTBiNTM3NiIsInN1YiI6IjVhODFiMzc5YzNhMzY4MTg5MzAzNzQ5ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ysrEd14oW-FbknVZcM4NET4-Z7bJc_vauzYS1vuJtHY";
-				API_URL_ENDPOINT = "https://api.visaero.com/";
+				API_URL_ENDPOINT = "https://api.themoviedb.org/";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T6B63PK4FC;
@@ -651,7 +643,7 @@
 				API_IMGURL_ENDPOINT = "https://image.tmdb.org/t/p/w600_and_h900_bestv2";
 				API_KEY = abd05d8d1150697600087b20710b5376;
 				API_READ_ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhYmQwNWQ4ZDExNTA2OTc2MDAwODdiMjA3MTBiNTM3NiIsInN1YiI6IjVhODFiMzc5YzNhMzY4MTg5MzAzNzQ5ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ysrEd14oW-FbknVZcM4NET4-Z7bJc_vauzYS1vuJtHY";
-				API_URL_ENDPOINT = "https://api.visaero.com/";
+				API_URL_ENDPOINT = "https://api.themoviedb.org/";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T6B63PK4FC;

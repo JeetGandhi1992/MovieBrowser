@@ -21,10 +21,10 @@ struct Movie {
     var original_language: String?
     var title: String?
     var backdrop_path: String?
-    var popularity: Numeric?
+    var popularity: NSNumber?
     var vote_count: Int?
     var video: Bool?
-    var vote_average: Numeric?
+    var vote_average: NSNumber?
     
 }
 
@@ -52,5 +52,12 @@ extension Movie: Mappable {
         self.vote_average       <- map["vote_average"]
         
     }
+    
+}
+
+enum MoviesSort {
+    
+    case getMoviesByPopularity
+    case getMoviesByTopRatings
     
 }

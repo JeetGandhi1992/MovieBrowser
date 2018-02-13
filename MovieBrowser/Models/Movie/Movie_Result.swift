@@ -12,7 +12,7 @@ import ObjectMapper
 struct Movie_Result {
     
     var page: Int?
-    var result: [Movie]?
+    var results: [Movie]?
     var total_results: Int?
     var total_pages: Int?
     
@@ -27,7 +27,7 @@ extension Movie_Result: Mappable {
     mutating func mapping(map: Map) {
         
         self.page       <- map["page"]
-        self.result     <- map["result"]
+        self.results     <- map["results"]
         self.total_results      <- map["total_results"]
         self.total_pages        <- map["total_pages"]
         
