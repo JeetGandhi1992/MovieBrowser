@@ -9,29 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MovieBrowser/ServiceInteractor/Movie/MovieServiceInteractor.swift"
-            timestampString = "540227678.348377"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
-            landmarkName = "getMovies(vc:sortBy:page:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "MovieBrowser/ViewController.swift"
             timestampString = "540227678.348775"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "28"
             endingLineNumber = "28"
-            landmarkName = "update(movies:success:)"
+            landmarkName = "update(movies_result:success:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -42,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieBrowser/ServiceInteractor/Movie/MovieServiceInteractor.swift"
-            timestampString = "540227678.348832"
+            timestampString = "540319021.227635"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "getMovies(vc:sortBy:page:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -57,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MovieBrowser/ServiceInteractor/Movie/MovieServiceInteractor.swift"
-            timestampString = "540227678.349067"
+            filePath = "MovieBrowser/Controller/Movie/MovieDetailViewController.swift"
+            timestampString = "540319021.227728"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
-            landmarkName = "getMovies(vc:sortBy:page:)"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -73,76 +57,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MovieBrowser/ServiceInteractor/Movie/MovieServiceInteractor.swift"
-            timestampString = "540227678.3492939"
+            filePath = "MovieBrowser/Controller/Movie/MovieViewController.swift"
+            timestampString = "540319021.2278039"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "getMovies(vc:sortBy:page:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Result.Result&lt;Moya.Response, Moya.MoyaError&gt;) -&gt; () in MovieBrowser.MovieServiceInteractor.getMovies(vc: __ObjC.UIViewController, sortBy: MovieBrowser.MoviesSort, page: Swift.Int) -&gt; ()"
-                  moduleName = "MovieBrowser"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rave/Test/MovieBrowser/MovieBrowser/ServiceInteractor/Movie/MovieServiceInteractor.swift"
-                  timestampString = "540227678.482324"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "109"
-                  endingLineNumber = "109"
-                  offsetFromSymbolStart = "1295">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Result.Result&lt;Moya.Response, Moya.MoyaError&gt;) -&gt; () in MovieBrowser.MovieServiceInteractor.getMovies(vc: __ObjC.UIViewController, sortBy: MovieBrowser.MoviesSort, page: Swift.Int) -&gt; ()"
-                  moduleName = "MovieBrowser"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rave/Test/MovieBrowser/MovieBrowser/ServiceInteractor/Movie/MovieServiceInteractor.swift"
-                  timestampString = "540227678.484207"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "109"
-                  endingLineNumber = "109"
-                  offsetFromSymbolStart = "2216">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Result.Result&lt;Moya.Response, Moya.MoyaError&gt;) -&gt; () in MovieBrowser.MovieServiceInteractor.getMovies(vc: __ObjC.UIViewController, sortBy: MovieBrowser.MoviesSort, page: Swift.Int) -&gt; ()"
-                  moduleName = "MovieBrowser"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rave/Test/MovieBrowser/MovieBrowser/ServiceInteractor/Movie/MovieServiceInteractor.swift"
-                  timestampString = "540227678.48613"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "109"
-                  endingLineNumber = "109"
-                  offsetFromSymbolStart = "2243">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MovieBrowser/ServiceInteractor/Movie/MovieServiceInteractor.swift"
-            timestampString = "540227678.3495179"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "getMovies(vc:sortBy:page:)"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
+            landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -152,13 +73,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MovieBrowser/ServiceInteractor/Movie/MovieServiceInteractor.swift"
-            timestampString = "540227678.349743"
+            filePath = "MovieBrowser/Controller/Movie/MovieViewController.swift"
+            timestampString = "540319021.227862"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
-            landmarkName = "getMovies(vc:sortBy:page:)"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "prepare(for:sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MovieBrowser/Cells/MovieCell/MovieGridViewCell.swift"
+            timestampString = "540319021.227916"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "sendMovie(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

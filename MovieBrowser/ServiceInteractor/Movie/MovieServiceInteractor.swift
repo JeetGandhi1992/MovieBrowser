@@ -12,7 +12,7 @@ import ObjectMapper
 import Alamofire
 
 protocol UpdateMovieResult {
-    func update(movies: Movie_Result, success: Bool)
+    func update(movies_result: Movie_Result, success: Bool)
 }
 
 struct MovieServiceInteractor: TargetType {
@@ -22,7 +22,7 @@ struct MovieServiceInteractor: TargetType {
     init(page: Int) {
         self.page = page
     }
-    var baseURL: URL { return URL(string: getAPIBaseURL())! }
+    var baseURL: URL { return URL(string: Constants.BASE_URL)! }
     
     var path: String = ""
     
@@ -50,22 +50,11 @@ struct MovieServiceInteractor: TargetType {
         return true
     }
     
-    fileprivate func getAPIBaseURL() -> String {
-        guard let urlStr = (Bundle.main.object(forInfoDictionaryKey: "APIURLEndpoint") as? String)?.trimmingCharacters(in: .whitespaces) else {
-            return ""
-        }
-        return urlStr
-    }
-    
     fileprivate func appendQueryString(page: Int) -> [String : Any] {
-        
-        guard let apiKey = (Bundle.main.object(forInfoDictionaryKey: "APIKEY") as? String)?.trimmingCharacters(in: .whitespaces) else {
-            return [String : Any]()
-        }
-        
+
         var urlParameters = [String : Any]()
         
-        urlParameters.updateValue(apiKey, forKey: "api_key")
+        urlParameters.updateValue(Constants.API_KEY, forKey: "api_key")
         urlParameters.updateValue("en-US", forKey: "language")
         urlParameters.updateValue(page, forKey: "page")
         
@@ -118,7 +107,7 @@ extension MovieServiceInteractor {
     
     static func sendResult(vc: UIViewController, movies: Movie_Result, success: Bool ) {
         delegate = vc as? UpdateMovieResult
-        delegate?.update(movies: movies, success: success)
+        delegate?.update(movies_result: movies, success: success)
     }
 
 }

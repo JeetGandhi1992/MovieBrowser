@@ -22,6 +22,11 @@ pod 'Result'
 pod 'AlamofireObjectMapper'
 
 pod 'Moya'
-  # Pods for MovieBrowser
+
+pod 'Hero'
+
+pod 'CRNotifications'
+
+# Pods for MovieBrowser
 
 end

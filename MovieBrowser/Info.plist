@@ -57,5 +57,7 @@
 	</array>
 	<key>APIKEY</key>
 	<string>$(API_KEY)</string>
+	<key>APIIMGURLENDPOINT</key>
+	<string>$(API_IMG_URL_ENDPOINT)</string>
 </dict>
 </plist>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        let bundledPath: String = URL(fileURLWithPath: (Bundle.main.resourcePath)!).appendingPathComponent("CustomPathImages").absoluteString
+        SDImageCache.shared().addReadOnlyCachePath(bundledPath)
+        
         return true
     }
 
