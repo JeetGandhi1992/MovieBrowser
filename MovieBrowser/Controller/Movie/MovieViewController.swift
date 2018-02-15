@@ -2,7 +2,7 @@
 //  MovieViewController.swift
 //  MovieBrowser
 //
-//  Created by Rave on 14/02/18.
+//  Created by Jeet on 14/02/18.
 //  Copyright © 2018 Jeet Gandhi. All rights reserved.
 //
 
@@ -13,17 +13,16 @@ class MovieViewController: UIViewController {
 
     
     @IBOutlet weak var MovieDisplayTable: UITableView!
-    
-    var ToggleBarButtonItem = UIBarButtonItem()
-    
+        
     var PageCount = 1
     var displayGrid = true
     var isRefreshing = false
     var movies = [ Movie ]()
+    var sortChoice = MoviesSort.getMoviesByPopularity
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         self.navigationController?.title = "Movies"
         self.MovieDisplayTable.rowHeight = UITableViewAutomaticDimension
         self.MovieDisplayTable.estimatedRowHeight = 260
@@ -38,7 +37,7 @@ class MovieViewController: UIViewController {
         
         self.isRefreshing = true
         var service = MovieServiceInteractor(page: PageCount)
-        service.getMovies(vc: self, sortBy: MoviesSort.getMoviesByPopularity, page: PageCount)
+        service.getMovies(vc: self, sortBy: sortChoice, page: PageCount)
         
     }
 
@@ -55,6 +54,15 @@ class MovieViewController: UIViewController {
         self.MovieDisplayTable.reloadSections(IndexSet(integer: 0), with: .automatic)
     }
     
+    @IBAction func showDetailSearch() {
+        
+        self.performSegue(withIdentifier: "ShowDiscovery", sender: nil)
+    }
+    
+    @IBAction func showAdvanceFilter() {
+        
+        self.performSegue(withIdentifier: "showAdvanceFilter", sender: nil)
+    }
    
     // MARK: - Navigation
 
@@ -71,6 +79,12 @@ class MovieViewController: UIViewController {
             if let detailMovieVc = segue.destination as? MovieDetailViewController {
                 detailMovieVc.model = sender as? Movie
                 detailMovieVc.title = (sender as? Movie)?.original_title
+            }
+        }
+        else if segue.identifier == "showAdvanceFilter" {
+            if let filterVc = segue.destination as? MovieFilterViewController {
+                filterVc.delegate = self
+                filterVc.sortChoice = self.sortChoice
             }
         }
         
@@ -186,4 +200,15 @@ extension MovieViewController: SendSelectedMovie {
     func selected(movie: Movie) {
         self.performSegue(withIdentifier: "showMovieDetailForGrid", sender: movie)
     }
+}
+
+extension MovieViewController: UpdateSortChoice {
+    
+    func update(sortChoice: MoviesSort) {
+        self.sortChoice = sortChoice
+        self.movies = [ Movie ]()
+        self.PageCount = 1
+        self.getMovies()
+    }
+    
 }

@@ -2,12 +2,13 @@
 //  AppDelegate.swift
 //  MovieBrowser
 //
-//  Created by Rave on 12/02/18.
+//  Created by Jeet on 12/02/18.
 //  Copyright © 2018 Jeet Gandhi. All rights reserved.
 //
 
 import UIKit
 import SDWebImage
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        IQKeyboardManager.sharedManager().enable = true
+        IQKeyboardManager.sharedManager().enableAutoToolbar = true
         
         let bundledPath: String = URL(fileURLWithPath: (Bundle.main.resourcePath)!).appendingPathComponent("CustomPathImages").absoluteString
         SDImageCache.shared().addReadOnlyCachePath(bundledPath)

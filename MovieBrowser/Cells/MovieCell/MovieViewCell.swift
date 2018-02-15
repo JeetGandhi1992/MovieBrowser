@@ -2,7 +2,7 @@
 //  MovieViewCell.swift
 //  MovieBrowser
 //
-//  Created by Rave on 14/02/18.
+//  Created by Jeet on 14/02/18.
 //  Copyright © 2018 Jeet Gandhi. All rights reserved.
 //
 

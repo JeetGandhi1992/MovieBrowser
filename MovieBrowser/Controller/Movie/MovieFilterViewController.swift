@@ -1,25 +1,23 @@
 //
-//  MovieDetailViewController.swift
+//  MovieFilterViewController.swift
 //  MovieBrowser
 //
-//  Created by Jeet on 14/02/18.
+//  Created by Jeet on 15/02/18.
 //  Copyright © 2018 Jeet Gandhi. All rights reserved.
 //
 
 import UIKit
 
-class MovieDetailViewController: UIViewController {
+class MovieFilterViewController: UIViewController {
 
-    @IBOutlet weak var MovieDetailTable: UITableView!
+    @IBOutlet weak var MovieFilterTable: UITableView!
     
-    var model: Movie?
+    var sortChoice = MoviesSort.getMoviesByPopularity 
+    var delegate: UpdateSortChoice?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationController?.title = self.model?.original_title
-        self.MovieDetailTable.rowHeight = UITableViewAutomaticDimension
-        self.MovieDetailTable.estimatedRowHeight = 575
         // Do any additional setup after loading the view.
     }
 
@@ -29,6 +27,12 @@ class MovieDetailViewController: UIViewController {
     }
     
 
+    @IBAction func DoneBtnClicked(sender: UIButton) {
+        
+        self.delegate?.update(sortChoice: self.sortChoice)
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -41,8 +45,8 @@ class MovieDetailViewController: UIViewController {
 
 }
 
-extension MovieDetailViewController: UITableViewDelegate,UITableViewDataSource {
-
+extension MovieFilterViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -53,12 +57,20 @@ extension MovieDetailViewController: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let detailMovieCell = self.MovieDetailTable.dequeueReusableCell(withIdentifier: "MovieDetailViewCell", for: indexPath) as! MovieDetailViewCell
+        let filterCell = self.MovieFilterTable.dequeueReusableCell(withIdentifier: "FilterViewCell", for: indexPath) as! FilterViewCell
         
-        detailMovieCell.model = self.model
+        filterCell.delegate = self 
+        filterCell.sortChoice = self.sortChoice
         
-        return detailMovieCell
+        return filterCell
         
+    }
+}
+
+extension MovieFilterViewController: UpdateSortChoice {
+    
+    func update(sortChoice: MoviesSort) {
+        self.sortChoice = sortChoice
     }
     
 }

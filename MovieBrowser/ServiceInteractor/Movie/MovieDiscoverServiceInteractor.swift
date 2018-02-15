@@ -1,8 +1,8 @@
 //
-//  MovieServiceInteractor.swift
+//  MovieDiscoverServiceInteractor.swift
 //  MovieBrowser
 //
-//  Created by Jeet on 13/02/18.
+//  Created by Jeet on 15/02/18.
 //  Copyright © 2018 Jeet Gandhi. All rights reserved.
 //
 
@@ -11,20 +11,19 @@ import Moya
 import ObjectMapper
 import Alamofire
 
-protocol UpdateMovieResult {
-    func update(movies_result: Movie_Result, success: Bool)
-}
-
-struct MovieServiceInteractor: TargetType {
+struct MovieDiscoverServiceInteractor: TargetType {
     
     var page: Int = 1
+    var query: String = ""
     
-    init(page: Int) {
+    init(page: Int, query: String) {
         self.page = page
+        self.query = query
+    
     }
     var baseURL: URL { return URL(string: Constants.BASE_URL)! }
     
-    var path: String = ""
+    var path: String = "3/search/movie"
     
     var method: Moya.Method {
         return .get
@@ -51,12 +50,13 @@ struct MovieServiceInteractor: TargetType {
     }
     
     fileprivate func appendQueryString(page: Int) -> [String : Any] {
-
+        
         var urlParameters = [String : Any]()
         
         urlParameters.updateValue(Constants.API_KEY, forKey: "api_key")
         urlParameters.updateValue("en-US", forKey: "language")
         urlParameters.updateValue(page, forKey: "page")
+        urlParameters.updateValue(self.query, forKey: "query")
         
         return urlParameters
         
@@ -64,23 +64,16 @@ struct MovieServiceInteractor: TargetType {
     
 }
 
-extension MovieServiceInteractor {
-
+extension MovieDiscoverServiceInteractor {
+    
     static var delegate : UpdateMovieResult?
     
-    mutating func getMovies(vc: UIViewController, sortBy: MoviesSort, page: Int) {
+    mutating func getFilteredMovies(vc: UIViewController, page: Int) {
         
         var movies = Movie_Result()
-
-        switch sortBy {
-        case MoviesSort.getMoviesByPopularity:
-                self.path = "3/movie/popular"
-        case MoviesSort.getMoviesByTopRatings:
-                self.path = "3/movie/top_rated"
-        }
         
-        let provider = MoyaProvider<MovieServiceInteractor>()
-    
+        let provider = MoyaProvider<MovieDiscoverServiceInteractor>()
+        
         provider.request(self, completion: { (result) in
             var success = true
             
@@ -100,7 +93,7 @@ extension MovieServiceInteractor {
             case .failure(let error):
                 print(error)
             }
-            MovieServiceInteractor.sendResult(vc: vc, movies: movies, success: success)
+            MovieDiscoverServiceInteractor.sendResult(vc: vc, movies: movies, success: success)
         })
         
     }
@@ -109,5 +102,5 @@ extension MovieServiceInteractor {
         delegate = vc as? UpdateMovieResult
         delegate?.update(movies_result: movies, success: success)
     }
-
+    
 }
