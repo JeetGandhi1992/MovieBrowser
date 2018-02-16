@@ -32,12 +32,18 @@ class MovieGridViewCell: UITableViewCell {
             let imgUrlStr1 = self.models?.first?.poster_path ?? ""
             self.movieImg1.sd_setImage(with: URL(string: Constants.BASE_IMG_URL + imgUrlStr1), placeholderImage: #imageLiteral(resourceName: "movie_placeholder"), options: .progressiveDownload, completed: nil)
             
+            self.movieImg1.hero.id = self.models?.first?.original_title
+            self.movieImg1.hero.modifiers = [.arc]
+            
             if (self.models?.count ?? 0) > 1 {
                 
                 self.movieTitleLbl1.isHidden = false
                 self.movieImg2.isHidden = false
                 
                 self.movieTitleLbl2.text = self.models?.last?.original_title
+                
+                self.movieImg2.hero.id = self.models?.last?.original_title
+                self.movieImg2.hero.modifiers = [.arc]
                 
                 let imgUrlStr2 = self.models?.last?.poster_path ?? ""
                 self.movieImg2.sd_setImage(with: URL(string: Constants.BASE_IMG_URL + imgUrlStr2), placeholderImage: #imageLiteral(resourceName: "movie_placeholder"), options: .progressiveDownload, completed: nil)

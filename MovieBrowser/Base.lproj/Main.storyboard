@@ -175,6 +175,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="IMF-0V-I2p"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="B6R-E6-Equ"/>
@@ -227,6 +231,10 @@
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="heroModalAnimationTypeString" value="auto"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="MovieDisplayTable" destination="7cO-EJ-NhM" id="fm6-5n-ycf"/>
                         <segue destination="cSy-dj-M1Q" kind="show" identifier="ShowDiscovery" id="KLg-Ie-ByE"/>
@@ -264,8 +272,8 @@
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="258" id="jOG-bD-kZJ"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="NO"/>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="NO"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="iM6-Tj-yfc">
@@ -347,6 +355,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="dataSource" destination="2zb-Qq-C3K" id="JcM-26-B5V"/>
                                     <outlet property="delegate" destination="2zb-Qq-C3K" id="fag-WC-sVF"/>
@@ -362,6 +374,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1R8-am-1To"/>
                     </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="MovieDetailTable" destination="qNe-7N-sUN" id="uB6-fb-HDY"/>
                     </connections>
@@ -373,7 +388,6 @@
         <!--Search & Filter-->
         <scene sceneID="DRJ-9f-in1">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="V3z-Zd-MFU" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="Search &amp; Filter" id="cSy-dj-M1Q" customClass="MovieSearchViewController" customModule="MovieBrowser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pFe-b0-BiH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -576,6 +590,7 @@
                         <segue destination="2zb-Qq-C3K" kind="show" identifier="showMovieDetailForGrid" id="Ylx-PG-3XT"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V3z-Zd-MFU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="457" y="922"/>
         </scene>
@@ -729,6 +744,11 @@
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="heroNavigationAnimationTypeString" value="auto"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="heroModalAnimationTypeString" value="auto"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="jg7-xp-ULu"/>
                     </connections>
@@ -742,6 +762,6 @@
         <image name="movie_placeholder" width="112" height="112"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZK1-xT-4vR"/>
+        <segue reference="Y7Y-9e-Nf9"/>
     </inferredMetricsTieBreakers>
 </document>

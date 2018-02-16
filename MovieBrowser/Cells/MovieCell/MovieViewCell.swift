@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Hero
 
 class MovieViewCell: UITableViewCell {
 
@@ -20,6 +21,9 @@ class MovieViewCell: UITableViewCell {
             
             let imgUrlStr = self.model?.poster_path ?? ""
             self.movieImg.sd_setImage(with: URL(string: Constants.BASE_IMG_URL + imgUrlStr), placeholderImage: #imageLiteral(resourceName: "movie_placeholder"), options: .progressiveDownload, completed: nil)
+            
+            self.movieImg.hero.id = self.model?.original_title
+            self.movieImg.hero.modifiers = [.arc]
         }
     }
     

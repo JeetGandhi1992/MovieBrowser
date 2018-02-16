@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Hero
 
 class MovieDetailViewCell: UITableViewCell {
 
@@ -25,6 +26,9 @@ class MovieDetailViewCell: UITableViewCell {
             self.VoteAverageLbl.text = self.model?.vote_average?.stringValue
             self.ReleaseDateLbl.text = self.model?.release_date
             self.OverViewLbl.text = self.model?.overview
+            
+            self.MoviePosterImg.hero.id = self.model?.original_title
+            self.MoviePosterImg.hero.modifiers = [.arc]
             
             let imgUrlStr = self.model?.poster_path ?? ""
             self.MoviePosterImg.sd_setImage(with: URL(string: Constants.BASE_IMG_URL + imgUrlStr), placeholderImage: #imageLiteral(resourceName: "movie_placeholder"), options: .progressiveDownload, completed: nil)
