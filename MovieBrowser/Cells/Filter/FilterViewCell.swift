@@ -33,9 +33,9 @@ class FilterViewCell: UITableViewCell {
     @IBOutlet weak var TopRatedBtn: UIButton!
     
     override func awakeFromNib() {
+        
         super.awakeFromNib()
         self.selectionStyle = .none
-        
         switch sortChoice {
         case .getMoviesByPopularity:
             self.PopularityBtn.setTitle("", for: .normal)
@@ -44,7 +44,6 @@ class FilterViewCell: UITableViewCell {
             self.PopularityBtn.setTitle("", for: .normal)
             self.TopRatedBtn.setTitle("", for: .normal)
         }
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -65,8 +64,5 @@ class FilterViewCell: UITableViewCell {
             self.sortChoice = MoviesSort.getMoviesByTopRatings
         }
         self.delegate?.update(sortChoice: self.sortChoice)
-        
     }
-
 }
-

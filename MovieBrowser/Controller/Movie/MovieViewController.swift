@@ -14,11 +14,18 @@ class MovieViewController: UIViewController {
     
     @IBOutlet weak var MovieDisplayTable: UITableView!
         
+    @IBOutlet weak var FilterBtn: UIButton!
+    
     var PageCount = 1
     var displayGrid = true
     var isRefreshing = false
     var movies = [ Movie ]()
     var sortChoice = MoviesSort.getMoviesByPopularity
+    
+    var searchEnabled = false
+    var query = ""
+    var totalCount = 0
+    var totalPages = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,10 +44,26 @@ class MovieViewController: UIViewController {
         
         self.isRefreshing = true
         var service = MovieServiceInteractor(page: PageCount)
-        service.getMovies(vc: self, sortBy: sortChoice, page: PageCount)
+        service.getMovies(vc: self, sortBy: sortChoice, page: self.PageCount)
+        
+    }
+    
+    func getFilteredMovies() {
+        
+        self.isRefreshing = true
+        var service = MovieDiscoverServiceInteractor(page: self.PageCount, query: self.query)
+        service.getFilteredMovies(vc: self, page: self.PageCount)
         
     }
 
+    func resetParameters() {
+        
+        self.PageCount = 1
+        self.movies = [ Movie ]()
+        self.totalPages = 0
+        self.totalCount = 0
+    }
+    
     @IBAction func toggleStyle(_ sender: UIButton) {
         
         if self.displayGrid {
@@ -55,8 +78,20 @@ class MovieViewController: UIViewController {
     }
     
     @IBAction func showDetailSearch() {
+ 
+        if self.searchEnabled {
+            self.searchEnabled = false
+            self.FilterBtn.isHidden = false
+        } else {
+            self.searchEnabled = true
+            self.FilterBtn.isHidden = true
+        }
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+        self.resetParameters()
         
-        self.performSegue(withIdentifier: "ShowDiscovery", sender: nil)
+        self.MovieDisplayTable.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: false)
+        self.MovieDisplayTable.scrollsToTop = true
+        self.MovieDisplayTable.reloadData()
     }
     
     @IBAction func showAdvanceFilter() {
@@ -64,6 +99,31 @@ class MovieViewController: UIViewController {
         self.performSegue(withIdentifier: "showAdvanceFilter", sender: nil)
     }
    
+    func handleMovieResult(success: Bool, movies_result: Movie_Result) {
+
+        if success {
+            let updatedmovies = movies_result.results ?? [Movie]()
+            
+            if updatedmovies.count == 0 &&  self.movies.count == 0 {
+                CRNotifications.showNotification(type: .info, title: "Sorry!", message: "No result found.", dismissDelay: 3)
+            } else {
+                self.movies = self.movies + updatedmovies
+                self.totalCount = movies_result.total_results ?? 0
+                self.totalPages = movies_result.total_pages ?? 0
+                
+                if self.totalCount != self.movies.count {
+                    self.PageCount += 1
+                }
+            }
+            self.MovieDisplayTable.reloadData()
+            self.isRefreshing = false
+        }
+        else {
+            CRNotifications.showNotification(type: .error, title: "Error!", message: "Unable to load data.", dismissDelay: 3)
+        }
+    
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -90,13 +150,32 @@ class MovieViewController: UIViewController {
         
     }
 
-
 }
 
 extension MovieViewController: UITableViewDelegate,UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if self.searchEnabled {
+            return 44
+        }
+        else {
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        if self.searchEnabled {
+            let searchCell = self.MovieDisplayTable.dequeueReusableCell(withIdentifier: "SearchBarViewCell") as! SearchBarViewCell
+            return searchCell.contentView
+            
+        } else {
+            return UIView()
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -116,9 +195,26 @@ extension MovieViewController: UITableViewDelegate,UITableViewDataSource {
             if (indexPath.row == self.movies.count) || (self.displayGrid && (indexPath.row == self.movies.count/2)) {
                 
                 let loadingCell = self.MovieDisplayTable.dequeueReusableCell(withIdentifier: "LoadingViewCell", for: indexPath) as! LoadingViewCell
-                
-                if !isRefreshing {
-                    self.getMovies()
+
+                switch (self.isRefreshing,self.searchEnabled) {
+                    
+                case (false,false):
+                    if self.movies.count == self.totalCount && self.movies.count != 0 {
+                        loadingCell.Loader.stopAnimating()
+                    } else {
+                        self.getMovies()
+                        loadingCell.Loader.startAnimating()
+                    }
+                case (true,false):
+                    loadingCell.Loader.startAnimating()
+                case (false,true):
+                    if self.movies.count == self.totalCount {
+                        loadingCell.Loader.stopAnimating()
+                    } else {
+                        self.getFilteredMovies()
+                        loadingCell.Loader.startAnimating()
+                    }
+                case (true,true):
                     loadingCell.Loader.startAnimating()
                 }
                 
@@ -157,10 +253,27 @@ extension MovieViewController: UITableViewDelegate,UITableViewDataSource {
             
             let loadingCell = self.MovieDisplayTable.dequeueReusableCell(withIdentifier: "LoadingViewCell", for: indexPath) as! LoadingViewCell
             
-            if !isRefreshing {
-                self.getMovies()
+            switch (self.isRefreshing,self.searchEnabled) {
+                
+            case (false,false):
+                if self.movies.count == self.totalCount && self.movies.count != 0 {
+                    loadingCell.Loader.stopAnimating()
+                } else {
+                    self.getMovies()
+                    loadingCell.Loader.startAnimating()
+                }
+            case (true,false):
+                loadingCell.Loader.startAnimating()
+            case (false,true):
+                if self.movies.count == self.totalCount {
+                    loadingCell.Loader.stopAnimating()
+                } else {
+                    loadingCell.Loader.startAnimating()
+                }
+            case (true,true):
                 loadingCell.Loader.startAnimating()
             }
+            
             
             return loadingCell
         }
@@ -182,15 +295,17 @@ extension MovieViewController: UITableViewDelegate,UITableViewDataSource {
 extension MovieViewController: UpdateMovieResult {
     
     func update(movies_result: Movie_Result, success: Bool) {
-        if success {
-            let updatedmovies = movies_result.results ?? [Movie]()
-            self.movies = self.movies + updatedmovies
-            PageCount += 1
-            self.MovieDisplayTable.reloadData()
-            self.isRefreshing = false
+        if !self.searchEnabled {
+            self.handleMovieResult(success: success, movies_result: movies_result)
         }
-        else {
-            CRNotifications.showNotification(type: .error, title: "Error!", message: "Enable to load data.", dismissDelay: 3)
+    }
+}
+
+extension MovieViewController: UpdateSearchMovieResult {
+    
+    func updateSearch(movies_result: Movie_Result, success: Bool) {
+        if self.searchEnabled {
+            self.handleMovieResult(success: success, movies_result: movies_result)
         }
     }
 }
@@ -206,9 +321,23 @@ extension MovieViewController: UpdateSortChoice {
     
     func update(sortChoice: MoviesSort) {
         self.sortChoice = sortChoice
-        self.movies = [ Movie ]()
-        self.PageCount = 1
+        self.resetParameters()
         self.getMovies()
+    }
+    
+}
+
+extension MovieViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        if searchBar.text?.count ?? 0 > 2 && !self.isRefreshing {
+            self.query = searchBar.text!
+            self.resetParameters()
+            self.MovieDisplayTable.reloadData()
+            self.getFilteredMovies()
+        }
+        searchBar.endEditing(true)
     }
     
 }

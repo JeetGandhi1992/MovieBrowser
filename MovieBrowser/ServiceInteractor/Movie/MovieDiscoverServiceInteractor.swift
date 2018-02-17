@@ -11,6 +11,10 @@ import Moya
 import ObjectMapper
 import Alamofire
 
+protocol UpdateSearchMovieResult {
+    func updateSearch(movies_result: Movie_Result, success: Bool)
+}
+
 struct MovieDiscoverServiceInteractor: TargetType {
     
     var page: Int = 1
@@ -66,14 +70,14 @@ struct MovieDiscoverServiceInteractor: TargetType {
 
 extension MovieDiscoverServiceInteractor {
     
-    static var delegate : UpdateMovieResult?
+    static var delegate : UpdateSearchMovieResult?
     
     mutating func getFilteredMovies(vc: UIViewController, page: Int) {
         
         var movies = Movie_Result()
         
         let provider = MoyaProvider<MovieDiscoverServiceInteractor>()
-        
+
         provider.request(self, completion: { (result) in
             var success = true
             
@@ -99,8 +103,8 @@ extension MovieDiscoverServiceInteractor {
     }
     
     static func sendResult(vc: UIViewController, movies: Movie_Result, success: Bool ) {
-        delegate = vc as? UpdateMovieResult
-        delegate?.update(movies_result: movies, success: success)
+        delegate = vc as? UpdateSearchMovieResult
+        delegate?.updateSearch(movies_result: movies, success: success)
     }
     
 }

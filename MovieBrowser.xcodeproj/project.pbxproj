@@ -21,12 +21,12 @@
 		4762984D2032EA2800BD8621 /* fa-solid-900.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 476298492032EA2800BD8621 /* fa-solid-900.ttf */; };
 		4762984E2032EA2800BD8621 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4762984A2032EA2800BD8621 /* fontawesome-webfont.ttf */; };
 		476298502032F03100BD8621 /* MovieServiceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762984F2032F03100BD8621 /* MovieServiceInteractor.swift */; };
+		4791226720380D98002BF713 /* SearchBarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4791226620380D98002BF713 /* SearchBarViewCell.swift */; };
 		47AF43FD2034101E0071464D /* MovieGridViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AF43FC2034101D0071464D /* MovieGridViewCell.swift */; };
 		47AF43FF203410460071464D /* MovieViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AF43FE203410460071464D /* MovieViewCell.swift */; };
 		47AF440220341C600071464D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AF440120341C600071464D /* Constants.swift */; };
 		47AF440520342A7E0071464D /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AF440420342A7E0071464D /* MovieViewController.swift */; };
 		47AF440820342D6C0071464D /* LoadingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AF440720342D6C0071464D /* LoadingViewCell.swift */; };
-		47AF440B203483020071464D /* MovieSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AF440A203483020071464D /* MovieSearchViewController.swift */; };
 		47AF440D2034831E0071464D /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AF440C2034831E0071464D /* MovieDetailViewController.swift */; };
 		47AF440F20348C9E0071464D /* MovieDetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AF440E20348C9E0071464D /* MovieDetailViewCell.swift */; };
 		47AF4411203589E20071464D /* MovieFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AF4410203589E20071464D /* MovieFilterViewController.swift */; };
@@ -52,12 +52,12 @@
 		476298492032EA2800BD8621 /* fa-solid-900.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-solid-900.ttf"; sourceTree = "<group>"; };
 		4762984A2032EA2800BD8621 /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.ttf"; sourceTree = "<group>"; };
 		4762984F2032F03100BD8621 /* MovieServiceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieServiceInteractor.swift; sourceTree = "<group>"; };
+		4791226620380D98002BF713 /* SearchBarViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarViewCell.swift; sourceTree = "<group>"; };
 		47AF43FC2034101D0071464D /* MovieGridViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieGridViewCell.swift; sourceTree = "<group>"; };
 		47AF43FE203410460071464D /* MovieViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewCell.swift; sourceTree = "<group>"; };
 		47AF440120341C600071464D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		47AF440420342A7E0071464D /* MovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
 		47AF440720342D6C0071464D /* LoadingViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewCell.swift; sourceTree = "<group>"; };
-		47AF440A203483020071464D /* MovieSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchViewController.swift; sourceTree = "<group>"; };
 		47AF440C2034831E0071464D /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		47AF440E20348C9E0071464D /* MovieDetailViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewCell.swift; sourceTree = "<group>"; };
 		47AF4410203589E20071464D /* MovieFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieFilterViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +132,7 @@
 		4762982E2032D62300BD8621 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				4791226520380D7C002BF713 /* SearchMovie */,
 				47AF44142035B4FF0071464D /* Filter */,
 				47AF440620342D4E0071464D /* LoadingCell */,
 				4762982F2032D63800BD8621 /* MovieCell */,
@@ -194,6 +195,14 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		4791226520380D7C002BF713 /* SearchMovie */ = {
+			isa = PBXGroup;
+			children = (
+				4791226620380D98002BF713 /* SearchBarViewCell.swift */,
+			);
+			path = SearchMovie;
+			sourceTree = "<group>";
+		};
 		47AF4400203418640071464D /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,7 +232,6 @@
 			children = (
 				47AF440420342A7E0071464D /* MovieViewController.swift */,
 				47AF440C2034831E0071464D /* MovieDetailViewController.swift */,
-				47AF440A203483020071464D /* MovieSearchViewController.swift */,
 				47AF4410203589E20071464D /* MovieFilterViewController.swift */,
 			);
 			path = Movie;
@@ -403,11 +411,11 @@
 				47AF43FD2034101E0071464D /* MovieGridViewCell.swift in Sources */,
 				4728FE5E2031E0FD00A08C69 /* AppDelegate.swift in Sources */,
 				476298332032DF8600BD8621 /* Movie.swift in Sources */,
-				47AF440B203483020071464D /* MovieSearchViewController.swift in Sources */,
 				476298352032E50D00BD8621 /* Movie_Result.swift in Sources */,
 				47AF4411203589E20071464D /* MovieFilterViewController.swift in Sources */,
 				47AF440520342A7E0071464D /* MovieViewController.swift in Sources */,
 				47AF440F20348C9E0071464D /* MovieDetailViewCell.swift in Sources */,
+				4791226720380D98002BF713 /* SearchBarViewCell.swift in Sources */,
 				476298502032F03100BD8621 /* MovieServiceInteractor.swift in Sources */,
 				47AF44182035D89F0071464D /* FilterViewCell.swift in Sources */,
 				47AF440820342D6C0071464D /* LoadingViewCell.swift in Sources */,
