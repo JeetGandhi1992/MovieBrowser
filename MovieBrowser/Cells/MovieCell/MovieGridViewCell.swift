@@ -27,12 +27,12 @@ class MovieGridViewCell: UITableViewCell {
     
     var models: [Movie]? {
         didSet {
-            self.movieTitleLbl1.text = self.models?.first?.original_title
+            self.movieTitleLbl1.text = self.models?.first?.originalTitle
             
-            let imgUrlStr1 = self.models?.first?.poster_path ?? ""
+            let imgUrlStr1 = self.models?.first?.posterPath ?? ""
             self.movieImg1.sd_setImage(with: URL(string: Constants.BASE_IMG_URL + imgUrlStr1), placeholderImage: #imageLiteral(resourceName: "movie_placeholder"), options: .progressiveDownload, completed: nil)
             
-            self.movieImg1.hero.id = self.models?.first?.original_title
+            self.movieImg1.hero.id = self.models?.first?.originalTitle
             self.movieImg1.hero.modifiers = [.arc]
             
             if (self.models?.count ?? 0) > 1 {
@@ -40,12 +40,12 @@ class MovieGridViewCell: UITableViewCell {
                 self.movieTitleLbl1.isHidden = false
                 self.movieImg2.isHidden = false
                 
-                self.movieTitleLbl2.text = self.models?.last?.original_title
+                self.movieTitleLbl2.text = self.models?.last?.originalTitle
                 
-                self.movieImg2.hero.id = self.models?.last?.original_title
+                self.movieImg2.hero.id = self.models?.last?.originalTitle
                 self.movieImg2.hero.modifiers = [.arc]
                 
-                let imgUrlStr2 = self.models?.last?.poster_path ?? ""
+                let imgUrlStr2 = self.models?.last?.posterPath ?? ""
                 self.movieImg2.sd_setImage(with: URL(string: Constants.BASE_IMG_URL + imgUrlStr2), placeholderImage: #imageLiteral(resourceName: "movie_placeholder"), options: .progressiveDownload, completed: nil)
             }
             else {

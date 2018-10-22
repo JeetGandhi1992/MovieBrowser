@@ -17,8 +17,8 @@ class MovieDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationController?.title = self.model?.original_title
-        self.MovieDetailTable.rowHeight = UITableViewAutomaticDimension
+        self.navigationController?.title = self.model?.originalTitle
+        self.MovieDetailTable.rowHeight = UITableView.automaticDimension
         self.MovieDetailTable.estimatedRowHeight = 575
         // Do any additional setup after loading the view.
     }

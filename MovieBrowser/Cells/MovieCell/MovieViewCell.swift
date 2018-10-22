@@ -17,12 +17,12 @@ class MovieViewCell: UITableViewCell {
     
     var model: Movie? {
         didSet {
-            self.movieTitleLbl.text = self.model?.original_title
+            self.movieTitleLbl.text = self.model?.originalTitle
             
-            let imgUrlStr = self.model?.poster_path ?? ""
+            let imgUrlStr = self.model?.posterPath ?? ""
             self.movieImg.sd_setImage(with: URL(string: Constants.BASE_IMG_URL + imgUrlStr), placeholderImage: #imageLiteral(resourceName: "movie_placeholder"), options: .progressiveDownload, completed: nil)
             
-            self.movieImg.hero.id = self.model?.original_title
+            self.movieImg.hero.id = self.model?.originalTitle
             self.movieImg.hero.modifiers = [.arc]
         }
     }

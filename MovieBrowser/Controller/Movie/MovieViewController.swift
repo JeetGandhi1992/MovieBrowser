@@ -31,7 +31,7 @@ class MovieViewController: UIViewController {
         super.viewDidLoad()
     
         self.navigationController?.title = "Movies"
-        self.MovieDisplayTable.rowHeight = UITableViewAutomaticDimension
+        self.MovieDisplayTable.rowHeight = UITableView.automaticDimension
         self.MovieDisplayTable.estimatedRowHeight = 260
     }
 
@@ -99,17 +99,17 @@ class MovieViewController: UIViewController {
         self.performSegue(withIdentifier: "showAdvanceFilter", sender: nil)
     }
    
-    func handleMovieResult(success: Bool, movies_result: Movie_Result) {
+    func handleMovieResult(success: Bool, moviesResult: MovieResult) {
 
         if success {
-            let updatedmovies = movies_result.results ?? [Movie]()
+            let updatedmovies = moviesResult.results ?? [Movie]()
             
             if updatedmovies.count == 0 &&  self.movies.count == 0 {
-                CRNotifications.showNotification(type: .info, title: "Sorry!", message: "No result found.", dismissDelay: 3)
+                CRNotifications.showNotification(type: CRNotifications.info, title: "Sorry!", message: "No result found.", dismissDelay: 3)
             } else {
                 self.movies = self.movies + updatedmovies
-                self.totalCount = movies_result.total_results ?? 0
-                self.totalPages = movies_result.total_pages ?? 0
+                self.totalCount = moviesResult.totalResults ?? 0
+                self.totalPages = moviesResult.totalPages ?? 0
                 
                 if self.totalCount != self.movies.count {
                     self.PageCount += 1
@@ -119,7 +119,7 @@ class MovieViewController: UIViewController {
             self.isRefreshing = false
         }
         else {
-            CRNotifications.showNotification(type: .error, title: "Error!", message: "Unable to load data.", dismissDelay: 3)
+            CRNotifications.showNotification(type: CRNotifications.error, title: "Error!", message: "Unable to load data.", dismissDelay: 3)
         }
     
     }
@@ -132,13 +132,13 @@ class MovieViewController: UIViewController {
         if segue.identifier == "showMovieDetail" {
             if let detailMovieVc = segue.destination as? MovieDetailViewController {
                 detailMovieVc.model = self.movies[sender as! Int]
-                detailMovieVc.title = self.movies[sender as! Int].original_title
+                detailMovieVc.title = self.movies[sender as! Int].originalTitle
             }
         }
         else if segue.identifier == "showMovieDetailForGrid" {
             if let detailMovieVc = segue.destination as? MovieDetailViewController {
                 detailMovieVc.model = sender as? Movie
-                detailMovieVc.title = (sender as? Movie)?.original_title
+                detailMovieVc.title = (sender as? Movie)?.originalTitle
             }
         }
         else if segue.identifier == "showAdvanceFilter" {
@@ -294,18 +294,18 @@ extension MovieViewController: UITableViewDelegate,UITableViewDataSource {
 
 extension MovieViewController: UpdateMovieResult {
     
-    func update(movies_result: Movie_Result, success: Bool) {
+    func update(movies_result: MovieResult, success: Bool) {
         if !self.searchEnabled {
-            self.handleMovieResult(success: success, movies_result: movies_result)
+            self.handleMovieResult(success: success, moviesResult: movies_result)
         }
     }
 }
 
 extension MovieViewController: UpdateSearchMovieResult {
     
-    func updateSearch(movies_result: Movie_Result, success: Bool) {
+    func updateSearch(movies_result: MovieResult, success: Bool) {
         if self.searchEnabled {
-            self.handleMovieResult(success: success, movies_result: movies_result)
+            self.handleMovieResult(success: success, moviesResult: movies_result)
         }
     }
 }

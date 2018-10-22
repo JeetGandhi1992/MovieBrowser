@@ -8,11 +8,10 @@
 
 import UIKit
 import Moya
-import ObjectMapper
 import Alamofire
 
 protocol UpdateMovieResult {
-    func update(movies_result: Movie_Result, success: Bool)
+    func update(movies_result: MovieResult, success: Bool)
 }
 
 struct MovieServiceInteractor: TargetType {
@@ -70,7 +69,7 @@ extension MovieServiceInteractor {
     
     mutating func getMovies(vc: UIViewController, sortBy: MoviesSort, page: Int) {
         
-        var movies = Movie_Result()
+        var movies = MovieResult()
 
         switch sortBy {
         case MoviesSort.getMoviesByPopularity:
@@ -87,25 +86,25 @@ extension MovieServiceInteractor {
             switch result {
             case .success(let response):
                 do {
-                    if let movieList = try response.mapJSON() as? [String :Any] {
-                        movies = Mapper<Movie_Result>().map(JSON: movieList)!
-                        success = true
-                    }
-                    else {
-                        success = false
-                    }
-                } catch {
+                    let decoder = JSONDecoder()
+                    decoder.keyDecodingStrategy = .convertFromSnakeCase
+                    movies = try decoder.decode(MovieResult.self, from: response.data)
+                    success = true
+            
+                } catch let error {
+                    print(error.localizedDescription)
                     success = false
                 }
             case .failure(let error):
                 print(error)
+                success = false
             }
             MovieServiceInteractor.sendResult(vc: vc, movies: movies, success: success)
         })
         
     }
     
-    static func sendResult(vc: UIViewController, movies: Movie_Result, success: Bool ) {
+    static func sendResult(vc: UIViewController, movies: MovieResult, success: Bool ) {
         delegate = vc as? UpdateMovieResult
         delegate?.update(movies_result: movies, success: success)
     }

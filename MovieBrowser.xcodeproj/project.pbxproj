@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1038A081217DFA6500112DB4 /* MovieResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1038A080217DFA6500112DB4 /* MovieResult.swift */; };
 		21E4616C0EC1E1DF1CB3A6A5 /* Pods_MovieBrowser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DA18F946D1783C80965257 /* Pods_MovieBrowser.framework */; };
 		4728FE5E2031E0FD00A08C69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4728FE5D2031E0FD00A08C69 /* AppDelegate.swift */; };
 		4728FE632031E0FD00A08C69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4728FE612031E0FD00A08C69 /* Main.storyboard */; };
@@ -15,7 +16,6 @@
 		4728FE772031F46500A08C69 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 4728FE752031F46400A08C69 /* LICENSE */; };
 		4728FE782031F46500A08C69 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4728FE762031F46400A08C69 /* README.md */; };
 		476298332032DF8600BD8621 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476298322032DF8600BD8621 /* Movie.swift */; };
-		476298352032E50D00BD8621 /* Movie_Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476298342032E50D00BD8621 /* Movie_Result.swift */; };
 		4762984B2032EA2800BD8621 /* fa-brands-400.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 476298472032EA2800BD8621 /* fa-brands-400.ttf */; };
 		4762984C2032EA2800BD8621 /* fa-regular-400.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 476298482032EA2800BD8621 /* fa-regular-400.ttf */; };
 		4762984D2032EA2800BD8621 /* fa-solid-900.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 476298492032EA2800BD8621 /* fa-solid-900.ttf */; };
@@ -35,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1038A080217DFA6500112DB4 /* MovieResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieResult.swift; sourceTree = "<group>"; };
 		365436B59A1F87FCA3FBED94 /* Pods-MovieBrowser.uat.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieBrowser.uat.xcconfig"; path = "Pods/Target Support Files/Pods-MovieBrowser/Pods-MovieBrowser.uat.xcconfig"; sourceTree = "<group>"; };
 		431E3D179EE1435F23158C2A /* Pods-MovieBrowser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieBrowser.release.xcconfig"; path = "Pods/Target Support Files/Pods-MovieBrowser/Pods-MovieBrowser.release.xcconfig"; sourceTree = "<group>"; };
 		4728FE5A2031E0FD00A08C69 /* MovieBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,7 +47,6 @@
 		4728FE752031F46400A08C69 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
 		4728FE762031F46400A08C69 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		476298322032DF8600BD8621 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
-		476298342032E50D00BD8621 /* Movie_Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie_Result.swift; sourceTree = "<group>"; };
 		476298472032EA2800BD8621 /* fa-brands-400.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-brands-400.ttf"; sourceTree = "<group>"; };
 		476298482032EA2800BD8621 /* fa-regular-400.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-regular-400.ttf"; sourceTree = "<group>"; };
 		476298492032EA2800BD8621 /* fa-solid-900.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-solid-900.ttf"; sourceTree = "<group>"; };
@@ -162,7 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				476298322032DF8600BD8621 /* Movie.swift */,
-				476298342032E50D00BD8621 /* Movie_Result.swift */,
+				1038A080217DFA6500112DB4 /* MovieResult.swift */,
 			);
 			path = Movie;
 			sourceTree = "<group>";
@@ -265,7 +265,6 @@
 				4728FE572031E0FD00A08C69 /* Frameworks */,
 				4728FE582031E0FD00A08C69 /* Resources */,
 				F7B4FE0728BF09B7B3A42EB2 /* [CP] Embed Pods Frameworks */,
-				9F1969C33E60A047EB736F82 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -283,7 +282,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Jeet Gandhi";
 				TargetAttributes = {
 					4728FE592031E0FD00A08C69 = {
@@ -348,21 +347,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9F1969C33E60A047EB736F82 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MovieBrowser/Pods-MovieBrowser-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		F7B4FE0728BF09B7B3A42EB2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -372,12 +356,10 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-MovieBrowser/Pods-MovieBrowser-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
-				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/CRNotifications/CRNotifications.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
@@ -386,12 +368,10 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CRNotifications.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
@@ -411,7 +391,6 @@
 				47AF43FD2034101E0071464D /* MovieGridViewCell.swift in Sources */,
 				4728FE5E2031E0FD00A08C69 /* AppDelegate.swift in Sources */,
 				476298332032DF8600BD8621 /* Movie.swift in Sources */,
-				476298352032E50D00BD8621 /* Movie_Result.swift in Sources */,
 				47AF4411203589E20071464D /* MovieFilterViewController.swift in Sources */,
 				47AF440520342A7E0071464D /* MovieViewController.swift in Sources */,
 				47AF440F20348C9E0071464D /* MovieDetailViewCell.swift in Sources */,
@@ -422,6 +401,7 @@
 				47AF441320359A290071464D /* MovieDiscoverServiceInteractor.swift in Sources */,
 				47AF43FF203410460071464D /* MovieViewCell.swift in Sources */,
 				47AF440D2034831E0071464D /* MovieDetailViewController.swift in Sources */,
+				1038A081217DFA6500112DB4 /* MovieResult.swift in Sources */,
 				47AF440220341C600071464D /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,6 +442,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -469,6 +450,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -519,6 +501,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -526,6 +509,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -565,13 +549,13 @@
 				API_URL_ENDPOINT = "https://api.themoviedb.org/";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 89PDLFZZQF;
+				DEVELOPMENT_TEAM = 2LVS42FC4K;
 				INFOPLIST_FILE = MovieBrowser/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jeet.MovieBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -586,13 +570,13 @@
 				API_URL_ENDPOINT = "https://api.themoviedb.org/";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 89PDLFZZQF;
+				DEVELOPMENT_TEAM = 2LVS42FC4K;
 				INFOPLIST_FILE = MovieBrowser/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jeet.MovieBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -611,6 +595,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -618,6 +603,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -664,13 +650,13 @@
 				API_URL_ENDPOINT = "https://api.themoviedb.org/";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 89PDLFZZQF;
+				DEVELOPMENT_TEAM = 2LVS42FC4K;
 				INFOPLIST_FILE = MovieBrowser/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jeet.MovieBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Dev;
@@ -689,6 +675,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -696,6 +683,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -742,13 +730,13 @@
 				API_URL_ENDPOINT = "https://api.themoviedb.org/";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 89PDLFZZQF;
+				DEVELOPMENT_TEAM = 2LVS42FC4K;
 				INFOPLIST_FILE = MovieBrowser/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jeet.MovieBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = UAT;

@@ -8,11 +8,10 @@
 
 import UIKit
 import Moya
-import ObjectMapper
 import Alamofire
 
 protocol UpdateSearchMovieResult {
-    func updateSearch(movies_result: Movie_Result, success: Bool)
+    func updateSearch(movies_result: MovieResult, success: Bool)
 }
 
 struct MovieDiscoverServiceInteractor: TargetType {
@@ -74,7 +73,7 @@ extension MovieDiscoverServiceInteractor {
     
     mutating func getFilteredMovies(vc: UIViewController, page: Int) {
         
-        var movies = Movie_Result()
+        var movies = MovieResult()
         
         let provider = MoyaProvider<MovieDiscoverServiceInteractor>()
 
@@ -84,25 +83,24 @@ extension MovieDiscoverServiceInteractor {
             switch result {
             case .success(let response):
                 do {
-                    if let movieList = try response.mapJSON() as? [String :Any] {
-                        movies = Mapper<Movie_Result>().map(JSON: movieList)!
-                        success = true
-                    }
-                    else {
-                        success = false
-                    }
-                } catch {
+                    let decoder = JSONDecoder()
+                    decoder.keyDecodingStrategy = .convertFromSnakeCase
+                    movies = try decoder.decode(MovieResult.self, from: response.data)
+                    success = true
+                } catch let error {
+                    print(error.localizedDescription)
                     success = false
                 }
             case .failure(let error):
                 print(error)
+                success = false
             }
             MovieDiscoverServiceInteractor.sendResult(vc: vc, movies: movies, success: success)
         })
         
     }
     
-    static func sendResult(vc: UIViewController, movies: Movie_Result, success: Bool ) {
+    static func sendResult(vc: UIViewController, movies: MovieResult, success: Bool ) {
         delegate = vc as? UpdateSearchMovieResult
         delegate?.updateSearch(movies_result: movies, success: success)
     }

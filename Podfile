@@ -9,8 +9,6 @@ pod 'IQKeyboardManagerSwift'
 
 pod 'SCLAlertView'
 
-pod 'ObjectMapper'
-
 pod 'Alamofire', '~> 4.5'
 
 pod 'AlamofireImage', '~> 3.3'
@@ -18,8 +16,6 @@ pod 'AlamofireImage', '~> 3.3'
 pod 'SDWebImage', '~> 4.0'
 
 pod 'Result'
-
-pod 'AlamofireObjectMapper'
 
 pod 'Moya'
 

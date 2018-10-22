@@ -23,14 +23,14 @@ class MovieDetailViewCell: UITableViewCell {
     var model: Movie? {
         didSet {
             
-            self.VoteAverageLbl.text = self.model?.vote_average?.stringValue
-            self.ReleaseDateLbl.text = self.model?.release_date
+            self.VoteAverageLbl.text = ("\(self.model?.voteAverage ?? 0)")
+            self.ReleaseDateLbl.text = self.model?.releaseDate
             self.OverViewLbl.text = self.model?.overview
             
-            self.MoviePosterImg.hero.id = self.model?.original_title
+            self.MoviePosterImg.hero.id = self.model?.originalTitle
             self.MoviePosterImg.hero.modifiers = [.arc]
             
-            let imgUrlStr = self.model?.poster_path ?? ""
+            let imgUrlStr = self.model?.posterPath ?? ""
             self.MoviePosterImg.sd_setImage(with: URL(string: Constants.BASE_IMG_URL + imgUrlStr), placeholderImage: #imageLiteral(resourceName: "movie_placeholder"), options: .progressiveDownload, completed: nil)
         }
     }
